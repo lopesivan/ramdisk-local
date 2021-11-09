@@ -1,0 +1,13 @@
+[Unit]
+Description=Workspace Enable
+#After=network.target
+
+[Service]
+Type=oneshot
+ExecStart= /opt/scripts/setup-workspace.sh
+RemainAfterExit=true
+ExecStop= /opt/scripts/teardown-workspace.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
